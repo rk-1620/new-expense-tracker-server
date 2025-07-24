@@ -5,11 +5,13 @@ const generateToken  = (id) => {
 }
 
 export const registerUser = async(req, res) =>{
-    const {fullName, email, password, profileImageUrl} = req.body;
+    const {fullname, email, password, profileImageUrl} = req.body;
 
-    if(!fullName || !email || !password)
+    console.log(fullname,email,password);
+
+    if(!fullname || !email || !password)
     {
-        return res.status(400).json({message: "all fields are required"})
+        return res.status(400).json({message: "all fields are requireddd"})
     }
 
     try{
@@ -19,7 +21,7 @@ export const registerUser = async(req, res) =>{
         }
 
         const user = await User.create({
-            fullName,
+            fullname,
             email,
             password,
             profileImageUrl
